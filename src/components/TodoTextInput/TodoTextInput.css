@@ -1,0 +1,44 @@
+.todo-text-input {
+  border-radius: 3.2rem;
+  font-size: 1.6rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  background-color: white;
+}
+
+.todo-text-input__inner-text {
+  font-size: 1.6rem;
+  border: 0;
+  outline: none;
+  width: 100%;
+  padding-left: 1.6rem;
+  background-color: white;
+}
+
+.todo-text-input__button {
+  padding: 0.4rem;
+  background: transparent;
+}
+
+.todo-text-input__button:hover {
+  cursor: pointer;
+}
+
+.todo-text-input__icon {
+  color: white;
+  font-size: 1.6rem;
+  width: 4.8rem;
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(to right, orange, red);
+}
+
+.todo-text-input__icon:hover {
+  background: lightsalmon;
+}

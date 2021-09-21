@@ -1,0 +1,28 @@
+.todo-list-item {
+  padding: 1.6rem;
+  background: white;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-list-item__color {
+  font-size: 1.6rem;
+  color: orangered;
+}
+
+.todo-list-item__color:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+.todo-list-item__right {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.todo-list-item__text {
+  font-size: 1.6rem;
+}
