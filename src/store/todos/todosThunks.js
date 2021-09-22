@@ -28,50 +28,51 @@ const fetchTodo = async (id) => {
 export const toggleTodo = (id) => async (dispatch) => {
   dispatch(todosActionCreators.todoToggled(id));
 
-  try {
-    const todo = await Promise.resolve(fetchTodo(id));
+  const todo = await Promise.resolve(fetchTodo(id));
 
-    await fetch(`${url}/${todo.id}`, {
-      body: JSON.stringify({ completed: !todo.completed }),
-      headers: { "Content-Type": "application/json" },
-      method: "PATCH",
-    });
-  } catch (error) {
-    dispatch(todosActionCreators.todoToggled(id));
-  }
+  await fetch(`${url}/${todo.id}`, {
+    body: JSON.stringify({ completed: !todo.completed }),
+    headers: { "Content-Type": "application/json" },
+    method: "PATCH",
+  });
 };
 
 export const changeColor =
   ({ id, color }) =>
-  async (dispatch, getState) => {
-    const previousColor = getState().todos.entities[id].color;
-
+  async (dispatch) => {
     dispatch(todosActionCreators.todoColorChanged({ id, color }));
-
-    try {
-      await fetch(`${url}/${id}`, {
-        body: JSON.stringify({ color }),
-        headers: { "Content-Type": "application/json" },
-        method: "PATCH",
-      });
-    } catch (error) {
-      dispatch(
-        todosActionCreators.todoColorChanged({ id, color: previousColor })
-      );
-    }
+    await fetch(`${url}/${id}`, {
+      body: JSON.stringify({ color }),
+      headers: { "Content-Type": "application/json" },
+      method: "PATCH",
+    });
   };
 
-export const removeTodo = (id) => async (dispatch, getState) => {
-  const previousTodo = getState().todos.entities[id];
-
+export const removeTodo = (id) => async (dispatch) => {
   dispatch(todosActionCreators.todoRemoved(id));
 
-  try {
-    await fetch(`${url}/${id}`, {
-      headers: { "Content-Type": "application/json" },
-      method: "DELETE",
-    });
-  } catch (error) {
-    dispatch(todosActionCreators.todoAdded(previousTodo));
-  }
+  await fetch(`${url}/${id}`, {
+    headers: { "Content-Type": "application/json" },
+    method: "DELETE",
+  });
+};
+
+export const markTodosAsCompleted = () => async (dispatch) => {
+  dispatch(todosActionCreators.todosMarkedAsCompleted());
+
+  await fetch(url, {
+    headers: { "Content-Type": "application/json" },
+    method: "PATCH",
+    body: JSON.stringify({ completed: true }),
+  });
+};
+
+export const completedTodosCleared = () => async (dispatch) => {
+  dispatch(todosActionCreators.completedTodosCleared());
+
+  await fetch(url, {
+    headers: { "Content-Type": "application/json" },
+    method: "DELETE",
+    body: JSON.stringify({ completed: true }),
+  });
 };

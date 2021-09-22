@@ -26,3 +26,11 @@ export const todoRemoved = (id) => ({
   type: todosActionTypes.todoRemoved,
   payload: id,
 });
+
+export const todosMarkedAsCompleted = () => ({
+  type: todosActionTypes.todosMarkedAsCompleted,
+});
+
+export const completedTodosCleared = () => ({
+  type: todosActionTypes.completedTodosCleared,
+});

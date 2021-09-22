@@ -17,9 +17,14 @@
 }
 
 .action__button {
-    background: orangered;
+    background: linear-gradient(to right, orange, red);
     font-size: 1.6rem;
     color: white;
     border-radius: 3.2rem;
     padding: 1.6rem;
+}
+
+.action__button:hover {
+    cursor: pointer;
+    background: orange;
 }

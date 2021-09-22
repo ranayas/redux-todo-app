@@ -55,12 +55,36 @@ const todosReducer = (state, action) => {
     }
     case todosActionTypes.todoRemoved: {
       const todoId = action.payload;
-      const newEntities = { ...state.entities };
-      delete newEntities[todoId];
+      const entities = { ...state.entities };
+      delete entities[todoId];
       return {
         ...state,
-        entities: newEntities,
+        entities,
       };
+    }
+    case todosActionTypes.todosMarkedAsCompleted: {
+      const entities = { ...state.entities };
+      Object.values(entities).forEach((todo) => {
+        entities[todo.id] = {
+          ...todo,
+          completed: true,
+        };
+      });
+      return {
+        ...state,
+        entities,
+      };
+    }
+    case todosActionTypes.completedTodosCleared: {
+      const entities = { ...state.entities };
+
+      Object.values(entities).forEach((todo) => {
+        if (todo.completed) {
+          delete entities[todo.id];
+        }
+      });
+
+      return { ...state, entities };
     }
     default: {
       return state;

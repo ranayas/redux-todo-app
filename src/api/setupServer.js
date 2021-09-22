@@ -24,10 +24,23 @@ const setupServer = () => {
         const id = request.params.id;
         return schema.todos.find(id);
       });
-      this.delete('/todos/:id', (schema, request) => {
-        const id = request.params.id
-        return schema.todos.find(id).destroy()
-      })
+      this.delete("/todos/:id", (schema, request) => {
+        const id = request.params.id;
+        return schema.todos.find(id).destroy();
+      });
+      this.patch("/todos", (schema, request) => {
+        const todoAttributes = JSON.parse(request.requestBody);
+        const todos = schema.todos.all().models;
+        todos.forEach((todo) => {
+          schema.todos.find(todo.id).update(todoAttributes);
+        });
+        return schema.todos.all();
+      });
+      this.delete("/todos", (schema, request) => {
+        const condition = JSON.parse(request.requestBody);
+        const todos = schema.todos.where(condition).models;
+        todos.forEach((todo) => schema.todos.find(todo.id).destroy());
+      });
     },
     seeds(server) {
       server.create("todo", {
