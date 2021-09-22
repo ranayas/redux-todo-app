@@ -41,9 +41,34 @@ export const toggleTodo = (id) => async (dispatch) => {
 
     jsonResponse = await response.json(response);
   } catch (error) {
-    if (error) {
-      dispatch(todosActionCreators.todoToggled(id));
-    }
+    dispatch(todosActionCreators.todoToggled(id));
   }
   return jsonResponse.todo;
 };
+
+export const changeColor =
+  ({ id, color }) =>
+  async (dispatch, getState) => {
+    const previousColor = getState().todos.entities[id].color;
+
+    dispatch(todosActionCreators.todoColorChanged({ id, color }));
+
+    let jsonResponse;
+
+    try {
+      const response = await fetch(`${url}/${id}`, {
+        body: JSON.stringify({ color }),
+        headers: { "Content-Type": "application/json" },
+        method: "PATCH",
+      });
+
+      jsonResponse = await response.json();
+    } catch (error) {
+      dispatch(
+        todosActionCreators.todoColorChanged({ id, color: previousColor })
+      );
+      return;
+    }
+
+    return jsonResponse.todo;
+  };

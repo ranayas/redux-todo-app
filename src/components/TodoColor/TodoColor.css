@@ -1,0 +1,35 @@
+.todo-color__color {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: block;
+  border-radius: 50%;
+  border: 0.2rem solid gray;
+}
+
+.todo-color__color--blue {
+  background-color: blue;
+}
+.todo-color__color--red {
+  background-color: red;
+}
+.todo-color__color--orange {
+  background-color: orange;
+}
+.todo-color__color--purple {
+  background-color: purple;
+}
+.todo-color__color--green {
+  background-color: green;
+}
+
+.todo-color__color:hover {
+  cursor: pointer;
+}
+
+.todo-color__radio:checked + .todo-color__color {
+  border-color: black;
+}
+
+.todo-color__radio {
+  display: none;
+}

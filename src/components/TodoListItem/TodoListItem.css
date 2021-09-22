@@ -8,14 +8,21 @@
   align-items: center;
 }
 
+.todo-list-item__color-button {
+  background: transparent;
+}
+
+.todo-list-item__color-button:hover {
+  cursor: pointer;
+}
+
+.todo-list-item__color-button:hover .todo-list-item__color {
+  color: orange;
+}
+
 .todo-list-item__color {
   font-size: 1.6rem;
   color: orangered;
-}
-
-.todo-list-item__color:hover {
-  color: orange;
-  cursor: pointer;
 }
 
 .todo-list-item__right {

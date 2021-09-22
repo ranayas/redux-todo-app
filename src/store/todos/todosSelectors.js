@@ -11,3 +11,5 @@ export const selectTodoIds = createSelector(selectTodos, (todos) =>
 );
 
 export const selectTodo = (id) => (state) => selectTodoEntities(state)[id];
+
+export const selectTodoColor = (id) => (state) => selectTodoEntities(state)[id].color;

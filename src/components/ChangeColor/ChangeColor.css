@@ -1,0 +1,35 @@
+.change-color {
+  background: seashell;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.4rem;
+}
+
+.change-color__colors {
+  display: flex;
+  gap: 1.6rem;
+  padding: 1.6rem 1.6rem;
+  flex-wrap: wrap;
+}
+
+.change-color__title-bar {
+  position: relative;
+}
+
+.change-color__close-button {
+  position: absolute;
+  font-size: 1.6rem;
+  background: seashell;
+}
+
+.change-color__title {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.change-color__close-button:hover {
+  cursor: pointer;
+  color: grey;
+}

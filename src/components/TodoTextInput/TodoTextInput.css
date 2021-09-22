@@ -39,6 +39,6 @@
   background: linear-gradient(to right, orange, red);
 }
 
-.todo-text-input__icon:hover {
+.todo-text-input__button:hover .todo-text-input__icon {
   background: lightsalmon;
 }

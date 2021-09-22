@@ -16,3 +16,8 @@ export const todoToggled = (id) => ({
   type: todosActionTypes.todoToggled,
   payload: id,
 });
+
+export const todoColorChanged = ({id, color}) => ({
+  type: todosActionTypes.todoColorChanged,
+  payload: {id, color},
+});

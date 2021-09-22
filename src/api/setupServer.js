@@ -1,5 +1,5 @@
 import { createServer, Model } from "miragejs";
-import * as TodoColors from "../shared/TodoColors";
+import * as TodoColor from "../shared/TodoColor";
 
 const setupServer = () => {
   createServer({
@@ -29,17 +29,17 @@ const setupServer = () => {
       server.create("todo", {
         text: "todo 1",
         completed: true,
-        color: TodoColors.blue,
+        color: TodoColor.blue,
       });
       server.create("todo", {
         text: "todo 2",
         completed: false,
-        color: TodoColors.blue,
+        color: TodoColor.red,
       });
       server.create("todo", {
         text: "todo 3",
         completed: false,
-        color: TodoColors.blue,
+        color: TodoColor.orange,
       });
     },
   });

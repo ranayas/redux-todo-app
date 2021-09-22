@@ -40,6 +40,19 @@ const todosReducer = (state, action) => {
         },
       };
     }
+    case todosActionTypes.todoColorChanged: {
+      const { id, color } = action.payload;
+      return {
+        ...state,
+        entities: {
+          ...state.entities,
+          [id]: {
+            ...state.entities[id],
+            color,
+          },
+        },
+      };
+    }
     default: {
       return state;
     }
