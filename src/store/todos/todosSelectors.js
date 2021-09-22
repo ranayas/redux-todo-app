@@ -12,4 +12,8 @@ export const selectTodoIds = createSelector(selectTodos, (todos) =>
 
 export const selectTodo = (id) => (state) => selectTodoEntities(state)[id];
 
-export const selectTodoColor = (id) => (state) => selectTodoEntities(state)[id].color;
+export const selectTodoColor = (id) => (state) =>
+  selectTodoEntities(state)[id].color;
+
+export const selectRemainingTodosCount = (state) =>
+  selectTodos(state).filter((todo) => !todo.completed).length;

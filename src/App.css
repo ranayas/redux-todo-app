@@ -8,3 +8,7 @@
 .app__actions-wrapper {
   padding-top: 3.2rem;
 }
+
+.app__remaining-todos-wrapper {
+  padding-top: 1.6rem;
+}

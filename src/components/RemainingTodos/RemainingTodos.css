@@ -1,0 +1,16 @@
+.remaining-todos {
+    background: white;
+    border-radius: 1.6rem;
+    padding: .8rem;
+    overflow: hidden;
+}
+.remaining-todos__title {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.remaining-todos__count {
+    padding-top: 1.6rem;
+    font-size: 1.6rem;
+    text-align: center;
+}
