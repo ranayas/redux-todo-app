@@ -9,7 +9,7 @@ export const fetchTodos = () => async (dispatch) => {
   dispatch(todosActionCreators.todosLoaded(jsonResponse.todos));
 };
 
-export const newTodo = (text) => async (dispatch) => {
+export const saveNewTodo = (text) => async (dispatch) => {
   const response = await fetch(url, {
     body: JSON.stringify({ text }),
     headers: { "Content-Type": "application/json" },
@@ -17,4 +17,33 @@ export const newTodo = (text) => async (dispatch) => {
   });
   const jsonResponse = await response.json(response);
   dispatch(todosActionCreators.todoAdded(jsonResponse.todo));
+};
+
+const fetchTodo = async (id) => {
+  const response = await fetch(`${url}/${id}`);
+  const jsonResponse = await response.json();
+  return jsonResponse.todo;
+};
+
+export const toggleTodo = (id) => async (dispatch) => {
+  dispatch(todosActionCreators.todoToggled(id));
+
+  let jsonResponse;
+
+  try {
+    const todo = await Promise.resolve(fetchTodo(id));
+
+    const response = await fetch(`${url}/${todo.id}`, {
+      body: JSON.stringify({ completed: !todo.completed }),
+      headers: { "Content-Type": "application/json" },
+      method: "PATCH",
+    });
+
+    jsonResponse = await response.json(response);
+  } catch (error) {
+    if (error) {
+      dispatch(todosActionCreators.todoToggled(id));
+    }
+  }
+  return jsonResponse.todo;
 };

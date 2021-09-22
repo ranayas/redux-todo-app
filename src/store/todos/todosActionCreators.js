@@ -11,3 +11,8 @@ export const todoAdded = (todo) => ({
   type: todosActionTypes.todoAdded,
   payload: todo,
 });
+
+export const todoToggled = (id) => ({
+  type: todosActionTypes.todoToggled,
+  payload: id,
+});

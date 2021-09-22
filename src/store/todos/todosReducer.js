@@ -27,6 +27,19 @@ const todosReducer = (state, action) => {
         entities: { ...state.entities, [todo.id]: todo },
       };
     }
+    case todosActionTypes.todoToggled: {
+      const todoId = action.payload;
+      return {
+        ...state,
+        entities: {
+          ...state.entities,
+          [todoId]: {
+            ...state.entities[todoId],
+            completed: !state.entities[todoId].completed,
+          },
+        },
+      };
+    }
     default: {
       return state;
     }

@@ -12,7 +12,7 @@ const TodoTextInput = () => {
   const handleTextKeyDown = (event) => {
     const trimmedText = text.trim();
     if (event.key === "Enter" && trimmedText) {
-      dispatch(todosThunks.newTodo(text));
+      dispatch(todosThunks.saveNewTodo(text));
       setText("");
     }
   };
@@ -20,7 +20,7 @@ const TodoTextInput = () => {
   const handleButtonClick = () => {
     const trimmedText = text.trim();
     if (trimmedText) {
-      dispatch(todosThunks.newTodo(text));
+      dispatch(todosThunks.saveNewTodo(text));
       setText("");
     }
   };
