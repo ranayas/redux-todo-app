@@ -1,6 +1,7 @@
 import Title from "./components/Title";
 import TodoTextInput from "./components/TodoTextInput";
 import TodoList from "./components/TodoList";
+import Actions from "./components/Actions";
 import "./App.css";
 
 const App = () => {
@@ -11,6 +12,9 @@ const App = () => {
         <TodoTextInput />
       </div>
       <TodoList />
+      <div className="app__actions-wrapper">
+        <Actions />
+      </div>
     </div>
   );
 };

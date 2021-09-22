@@ -1,0 +1,25 @@
+.actions {
+    background: white;
+    border-radius: 1.6rem;
+    padding: .8rem;
+}
+
+.action__title {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.action__buttons {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.6rem;
+    gap: 1.6rem;
+}
+
+.action__button {
+    background: orangered;
+    font-size: 1.6rem;
+    color: white;
+    border-radius: 3.2rem;
+    padding: 1.6rem;
+}
