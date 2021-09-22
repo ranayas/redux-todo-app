@@ -4,6 +4,7 @@ import TodoList from "./components/TodoList";
 import Actions from "./components/Actions";
 import RemainingTodos from "./components/RemainingTodos";
 import "./App.css";
+import FilterByStatus from "./components/FilterByStatus";
 
 const App = () => {
   return (
@@ -16,8 +17,12 @@ const App = () => {
       <div className="app__actions-wrapper">
         <Actions />
       </div>
-      <div className='app__remaining-todos-wrapper'></div>
-      <RemainingTodos />
+      <div className="app__remaining-todos-wrapper">
+        <RemainingTodos />
+      </div>
+      <div className="app__filter-by-status-wrapper">
+        <FilterByStatus />
+      </div>
     </div>
   );
 };

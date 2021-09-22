@@ -1,0 +1,30 @@
+.filter-status {
+  background-color: white;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  padding: 0.8rem;
+}
+
+.filter-status__label {
+  font-size: 1.6rem;
+  padding-left: 1.6rem;
+}
+
+.filter-status__input {
+  font-size: 1.6rem;
+}
+
+.filter-status__statuses-wrapper {
+    padding-top: 1.6rem;
+    display: flex;
+    justify-content: center;
+}
+
+.filter-status__statuses {
+    display: inline-block;
+}
+
+.filter-status__title {
+  font-size: 1.6rem;
+  text-align: center;
+}

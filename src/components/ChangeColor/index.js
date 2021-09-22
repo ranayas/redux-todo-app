@@ -18,6 +18,18 @@ const ChangeColor = ({ onClose, todoId }) => {
     }
   };
 
+  const renderTodoColors = Object.keys(TodoColors).map((key) => {
+    const color = TodoColors[key]
+    return (
+      <TodoColor
+        key={key}
+        name="todoColor"
+        color={color}
+        checked={todoColor === color}
+      />
+    );
+  });
+
   return (
     <div className="change-color">
       <div className="change-color__title-bar">
@@ -27,31 +39,7 @@ const ChangeColor = ({ onClose, todoId }) => {
         <p className="change-color__title">Select color</p>
       </div>
       <div className="change-color__colors" onChange={handleChange}>
-        <TodoColor
-          name="todoColor"
-          color={TodoColors.blue}
-          checked={todoColor === TodoColors.blue}
-        />
-        <TodoColor
-          name="todoColor"
-          color={TodoColors.red}
-          checked={todoColor === TodoColors.red}
-        />
-        <TodoColor
-          name="todoColor"
-          color={TodoColors.orange}
-          checked={todoColor === TodoColors.orange}
-        />
-        <TodoColor
-          name="todoColor"
-          color={TodoColors.purple}
-          checked={todoColor === TodoColors.purple}
-        />
-        <TodoColor
-          name="todoColor"
-          color={TodoColors.green}
-          checked={todoColor === TodoColors.green}
-        />
+        {renderTodoColors}
       </div>
     </div>
   );
