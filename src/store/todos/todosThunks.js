@@ -28,22 +28,17 @@ const fetchTodo = async (id) => {
 export const toggleTodo = (id) => async (dispatch) => {
   dispatch(todosActionCreators.todoToggled(id));
 
-  let jsonResponse;
-
   try {
     const todo = await Promise.resolve(fetchTodo(id));
 
-    const response = await fetch(`${url}/${todo.id}`, {
+    await fetch(`${url}/${todo.id}`, {
       body: JSON.stringify({ completed: !todo.completed }),
       headers: { "Content-Type": "application/json" },
       method: "PATCH",
     });
-
-    jsonResponse = await response.json(response);
   } catch (error) {
     dispatch(todosActionCreators.todoToggled(id));
   }
-  return jsonResponse.todo;
 };
 
 export const changeColor =
@@ -53,22 +48,30 @@ export const changeColor =
 
     dispatch(todosActionCreators.todoColorChanged({ id, color }));
 
-    let jsonResponse;
-
     try {
-      const response = await fetch(`${url}/${id}`, {
+      await fetch(`${url}/${id}`, {
         body: JSON.stringify({ color }),
         headers: { "Content-Type": "application/json" },
         method: "PATCH",
       });
-
-      jsonResponse = await response.json();
     } catch (error) {
       dispatch(
         todosActionCreators.todoColorChanged({ id, color: previousColor })
       );
-      return;
     }
-
-    return jsonResponse.todo;
   };
+
+export const removeTodo = (id) => async (dispatch, getState) => {
+  const previousTodo = getState().todos.entities[id];
+
+  dispatch(todosActionCreators.todoRemoved(id));
+
+  try {
+    await fetch(`${url}/${id}`, {
+      headers: { "Content-Type": "application/json" },
+      method: "DELETE",
+    });
+  } catch (error) {
+    dispatch(todosActionCreators.todoAdded(previousTodo));
+  }
+};

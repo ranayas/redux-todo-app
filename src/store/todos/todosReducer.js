@@ -53,6 +53,15 @@ const todosReducer = (state, action) => {
         },
       };
     }
+    case todosActionTypes.todoRemoved: {
+      const todoId = action.payload;
+      const newEntities = { ...state.entities };
+      delete newEntities[todoId];
+      return {
+        ...state,
+        entities: newEntities,
+      };
+    }
     default: {
       return state;
     }

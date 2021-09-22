@@ -24,6 +24,10 @@ const setupServer = () => {
         const id = request.params.id;
         return schema.todos.find(id);
       });
+      this.delete('/todos/:id', (schema, request) => {
+        const id = request.params.id
+        return schema.todos.find(id).destroy()
+      })
     },
     seeds(server) {
       server.create("todo", {

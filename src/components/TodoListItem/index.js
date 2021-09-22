@@ -15,11 +15,15 @@ const TodoListItem = ({ todoId }) => {
     dispatch(todosThunks.toggleTodo(todo.id));
   };
 
-  const handleButtonClick = () => {
+  const handleChangeColorButtonClick = () => {
     setShowModal(!showModal);
   };
 
   const handleClose = () => setShowModal(false);
+
+  const handleDeleteButtonClick = () => {
+    dispatch(todosThunks.removeTodo(todoId));
+  };
 
   return (
     <li className="todo-list-item">
@@ -39,20 +43,25 @@ const TodoListItem = ({ todoId }) => {
           {todo.text}
         </label>
       </div>
-      <button
-        onClick={handleButtonClick}
-        className="todo-list-item__color-button"
-      >
-        <i className="fas fa-palette todo-list-item__color"></i>
-      </button>
-      {showModal && (
-        <CenteredModal>
-          <ChangeColor
-            onClose={handleClose}
-            todoId={todoId}
-          />
-        </CenteredModal>
-      )}
+      <div className="todo-list-item__buttons">
+        <button
+          onClick={handleChangeColorButtonClick}
+          className="todo-list-item__button"
+        >
+          <i className="fas fa-palette todo-list-item__icon"></i>
+        </button>
+        {showModal && (
+          <CenteredModal>
+            <ChangeColor onClose={handleClose} todoId={todoId} />
+          </CenteredModal>
+        )}
+        <button
+          onClick={handleDeleteButtonClick}
+          className="todo-list-item__button"
+        >
+          <i className="fas fa-trash todo-list-item__icon"></i>
+        </button>
+      </div>
     </li>
   );
 };

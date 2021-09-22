@@ -8,19 +8,24 @@
   align-items: center;
 }
 
-.todo-list-item__color-button {
+.todo-list-item__buttons {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.todo-list-item__button {
   background: transparent;
 }
 
-.todo-list-item__color-button:hover {
+.todo-list-item__button:hover {
   cursor: pointer;
 }
 
-.todo-list-item__color-button:hover .todo-list-item__color {
+.todo-list-item__button:hover .todo-list-item__icon{
   color: orange;
 }
 
-.todo-list-item__color {
+.todo-list-item__button {
   font-size: 1.6rem;
   color: orangered;
 }
