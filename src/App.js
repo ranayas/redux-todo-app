@@ -5,6 +5,7 @@ import Actions from "./components/Actions";
 import RemainingTodos from "./components/RemainingTodos";
 import "./App.css";
 import FilterByStatus from "./components/FilterByStatus";
+import FilterByColor from "./components/FilterByColor";
 
 const App = () => {
   return (
@@ -22,6 +23,9 @@ const App = () => {
       </div>
       <div className="app__filter-by-status-wrapper">
         <FilterByStatus />
+      </div>
+      <div className="app_filter-by-color-wrapper">
+        <FilterByColor />
       </div>
     </div>
   );

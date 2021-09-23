@@ -18,6 +18,19 @@ const filtersReducer = (state, action) => {
         status,
       };
     }
+    case filtersActionTypes.colorFilterAdded: {
+      const color = action.payload;
+      return {
+        ...state,
+        colors: [...state.colors, color],
+      };
+    }
+    case filtersActionTypes.colorFilterRemoved: {
+      return {
+        ...state,
+        colors: [...state.colors.filter((color) => color !== action.payload)],
+      };
+    }
     default: {
       return state;
     }

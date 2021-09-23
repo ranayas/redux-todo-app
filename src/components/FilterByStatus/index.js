@@ -13,10 +13,8 @@ const FilterByStatus = () => {
   const filterStatus = useSelector(filtersSelectors.selectFilterStatus);
 
   const handleChange = (event) => {
-    const { name, value } = event.target;
-    if (name === inputName) {
-      dispatch(filtersThunks.changeStatusFilter(value));
-    }
+    const { value } = event.target;
+    dispatch(filtersThunks.changeStatusFilter(value));
   };
 
   const renderStatuses = Object.keys(StatusFilters).map((key) => {
@@ -31,7 +29,7 @@ const FilterByStatus = () => {
           name={inputName}
           value={statusFilter}
           checked={filterStatus === statusFilter}
-          readOnly
+          onChange={handleChange}
         />
         <label className="filter-status__label" htmlFor={id}>
           {capitalize(statusFilter)}
@@ -44,9 +42,7 @@ const FilterByStatus = () => {
     <div className="filter-status">
       <p className="filter-status__title">Filter Status</p>
       <div className="filter-status__statuses-wrapper">
-        <div className="filter-status__statuses" onChange={handleChange}>
-          {renderStatuses}
-        </div>
+        <div className="filter-status__statuses">{renderStatuses}</div>
       </div>
     </div>
   );

@@ -3,23 +3,23 @@
   height: 3.2rem;
   display: block;
   border-radius: 50%;
-  border: 0.2rem solid gray;
+  border: 0.2rem solid lightgray;
 }
 
 .todo-color__color--blue {
-  background-color: blue;
+  background: linear-gradient(to right, lightblue, blue);
 }
 .todo-color__color--red {
-  background-color: red;
+  background: linear-gradient(to right, lightpink, red);
 }
 .todo-color__color--orange {
-  background-color: orange;
+  background: linear-gradient(to right, lightcoral, orange);
 }
 .todo-color__color--purple {
-  background-color: purple;
+  background: linear-gradient(to right, lightskyblue, purple);
 }
 .todo-color__color--green {
-  background-color: green;
+  background: linear-gradient(to right, lightgreen, green);
 }
 
 .todo-color__color:hover {

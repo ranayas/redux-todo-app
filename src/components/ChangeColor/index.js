@@ -19,10 +19,13 @@ const ChangeColor = ({ onClose, todoId }) => {
   };
 
   const renderTodoColors = Object.keys(TodoColors).map((key) => {
-    const color = TodoColors[key]
+    const color = TodoColors[key];
+    const id = `${color}Todo`;
     return (
       <TodoColor
+        type="radio"
         key={key}
+        id={id}
         name="todoColor"
         color={color}
         checked={todoColor === color}

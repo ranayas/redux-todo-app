@@ -38,3 +38,21 @@
 .todo-list-item__text {
   font-size: 1.6rem;
 }
+
+.todo-list-item--blue {
+  background-color: lightblue;
+}
+
+.todo-list-item--green {
+  background-color: lightgreen;
+}
+
+.todo-list-item--orange {
+  background-color: lightsalmon;
+}
+.todo-list-item--purple {
+  background-color: lightskyblue;
+}
+.todo-list-item--red {
+  background-color: lightpink;
+}

@@ -1,18 +1,17 @@
 import "./TodoColor.css";
 
-const TodoColor = ({ name, color, checked }) => {
-  const id = `${color}Todo`;
-
+const TodoColor = ({ id, name, color, checked, type, onChange }) => {
   return (
     <div>
       <input
         name={name}
         id={id}
-        type="radio"
+        type={type}
         value={color}
         className="todo-color__radio"
         checked={checked}
         readOnly
+        onChange={onChange}
       />
       <label
         htmlFor={id}

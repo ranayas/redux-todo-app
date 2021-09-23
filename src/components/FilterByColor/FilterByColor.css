@@ -1,0 +1,23 @@
+.filter-by-color__title {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.filter-by-color {
+    background-color: white;
+    border-radius: 1.6rem;
+    padding: .8rem;
+    overflow: hidden;
+}
+
+.filter-by-color__colors-wrapper {
+    padding-top: 1.6rem;
+    display: flex;
+    justify-content: center;
+}
+
+.filter-by-color__colors {
+    display: flex;
+    flex-direction: row;
+    gap: 1.6rem;
+}

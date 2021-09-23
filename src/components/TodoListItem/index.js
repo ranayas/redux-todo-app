@@ -6,7 +6,7 @@ import { useState } from "react";
 import CenteredModal from "../CenteredModal";
 import ChangeColor from "../ChangeColor";
 
-const TodoListItem = ({ todoId }) => {
+const TodoListItem = ({ todoId, color }) => {
   const todo = useSelector(todosSelectors.selectTodo(todoId));
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
@@ -25,8 +25,14 @@ const TodoListItem = ({ todoId }) => {
     dispatch(todosThunks.removeTodo(todoId));
   };
 
+  const getClassNameColor = (modifier) => `todo-list-item--${modifier}`;
+
   return (
-    <li className="todo-list-item">
+    <li
+      className={`todo-list-item  ${
+        todo.color ? getClassNameColor(todo.color) : ""
+      }`}
+    >
       <div className="todo-list-item__right">
         <input
           className="todo-list-item__checkbox"
