@@ -33,6 +33,7 @@
 .todo-list-item__right {
   display: flex;
   gap: 1.6rem;
+  align-items: center;
 }
 
 .todo-list-item__text {
