@@ -19,28 +19,29 @@ export const selectTodoColor = (id) => (state) =>
 export const selectRemainingTodosCount = (state) =>
   selectTodos(state).filter((todo) => !todo.completed).length;
 
-const filterByStatus = (status) => (todo) => {
-  if (StatusFilters.active === status) {
-    return !todo.completed;
-  }
-  if (StatusFilters.completed === status) {
-    return todo.completed;
-  }
-  if (StatusFilters.all === status) {
-    return true;
-  }
-};
-
-const filterByColors = (colors) => (todo) =>
-  colors.length ? colors.includes(todo.color) : true;
-
 const selectFilteredTodos = createSelector(
   selectTodos,
   (state) => state.filters,
-  (todos, filters) =>
-    todos
-      .filter(filterByStatus(filters.status))
-      .filter(filterByColors(filters.colors))
+  (todos, filters) => {
+    const filtersStatusIsAll = filters.status === StatusFilters.all;
+    const filtersColorsIsEmpty = filters.colors.length === 0;
+
+    if (filtersStatusIsAll && filtersColorsIsEmpty) {
+      return todos;
+    }
+
+    const filtersStatusIsCompleted = filters.status === StatusFilters.completed;
+
+    return todos.filter((todo) => {
+      const matchesWithStatus =
+        filtersStatusIsAll || todo.completed === filtersStatusIsCompleted;
+
+      const matchesWithColors =
+        filtersColorsIsEmpty || filters.colors.includes(todo.color);
+
+      return matchesWithStatus && matchesWithColors;
+    });
+  }
 );
 
 export const selectFilteredTodoIds = createSelector(

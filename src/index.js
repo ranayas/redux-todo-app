@@ -7,7 +7,7 @@ import setupServer from "./api/setupServer";
 import * as ReactRedux from "react-redux";
 import store from "./store";
 
-setupServer()
+setupServer();
 
 ReactDOM.render(
   <React.StrictMode>
