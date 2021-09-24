@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./TodoTextInput.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import * as todosThunks from "../../store/todos/todosThunks";
 
 const TodoTextInput = () => {
@@ -28,6 +30,7 @@ const TodoTextInput = () => {
   return (
     <div className="todo-text-input">
       <input
+        id="newTodo"
         className="todo-text-input__inner-text"
         type="text"
         placeholder="What needs to be done"
@@ -36,7 +39,8 @@ const TodoTextInput = () => {
         onKeyDown={handleTextKeyDown}
       />
       <button onClick={handleButtonClick} className="todo-text-input__button">
-        <i className="fas fa-plus todo-text-input__icon"></i>
+        {/*         <i className="fas fa-plus todo-text-input__icon"></i> */}
+        <FontAwesomeIcon icon={faPlus} className="todo-text-input__icon" />
       </button>
     </div>
   );

@@ -5,6 +5,8 @@ import * as todosThunks from "../../store/todos/todosThunks";
 import { useState } from "react";
 import CenteredModal from "../CenteredModal";
 import ChangeColor from "../ChangeColor";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPalette, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const TodoListItem = ({ todoId, color }) => {
   const todo = useSelector(todosSelectors.selectTodo(todoId));
@@ -54,7 +56,7 @@ const TodoListItem = ({ todoId, color }) => {
           onClick={handleChangeColorButtonClick}
           className="todo-list-item__button"
         >
-          <i className="fas fa-palette todo-list-item__icon"></i>
+          <FontAwesomeIcon icon={faPalette} className="todo-list-item__icon" />
         </button>
         {showModal && (
           <CenteredModal>
@@ -65,7 +67,7 @@ const TodoListItem = ({ todoId, color }) => {
           onClick={handleDeleteButtonClick}
           className="todo-list-item__button"
         >
-          <i className="fas fa-trash todo-list-item__icon"></i>
+          <FontAwesomeIcon icon={faTrash} className="todo-list-item__icon" />
         </button>
       </div>
     </li>

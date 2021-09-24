@@ -4,7 +4,6 @@
   overflow: hidden;
   display: inline-flex;
   flex-direction: column;
-  padding: 0.4rem;
 }
 
 .change-color__colors {
@@ -16,12 +15,30 @@
 
 .change-color__title-bar {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.2rem;
 }
 
 .change-color__close-button {
+  margin: 0 .8rem 0 0;
   position: absolute;
+  right: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: red;
+  border-radius: 50%;
   font-size: 1.6rem;
-  background: seashell;
+  border: 0.1rem solid darkred;
+}
+
+.change-color__close-button:hover {
+  background-color: salmon;
+}
+
+.change-color__close-button:active {
+  border-color: red;
 }
 
 .change-color__title {

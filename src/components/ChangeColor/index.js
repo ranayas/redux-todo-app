@@ -36,9 +36,10 @@ const ChangeColor = ({ onClose, todoId }) => {
   return (
     <div className="change-color">
       <div className="change-color__title-bar">
-        <button className="change-color__close-button" onClick={onClose}>
-          <i className="fas fa-times"></i>
-        </button>
+        <button
+          className="change-color__close-button"
+          onClick={onClose}
+        ></button>
         <p className="change-color__title">Select color</p>
       </div>
       <div className="change-color__colors" onChange={handleChange}>
